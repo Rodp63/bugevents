@@ -5,6 +5,12 @@ from django.core.exceptions import ValidationError
 
 from .models import Ambiente, Evento, Turno
 
+
+'''
+EventoForm -> Creacion, modificacion y validacion de Eventos
+Clase relacionada -> CD85 [Control]
+Casos de Uso relacionados -> {BE04, BE05}
+'''
 class EventoForm(ModelForm):
     class Meta:
         model = Evento
@@ -18,6 +24,12 @@ class EventoForm(ModelForm):
         if fecha_inicio > fecha_fin:
             raise ValidationError("La fecha de inicio no puede ser posterior a la fecha de fin.")
 
+
+'''
+AmbienteForm -> Creacion, modificacion y validacion de Ambientes
+Clase relacionada -> CD25 [Control]
+Casos de Uso relacionados -> {BE07, BE08}
+'''
 class AmbienteForm(ModelForm):
     class Meta:
         model = Ambiente
@@ -32,6 +44,12 @@ class AmbienteForm(ModelForm):
         if aforo <= 0:
             raise ValidationError("El valor de aforo debe ser un número positivo.")
 
+
+'''
+TurnoForm -> Formulario de creacion de Turnos
+Clase relacionada -> CD45 [Control]
+Casos de Uso relacionados -> {BE12}
+'''
 class TurnoForm(ModelForm):
     class Meta:
         model = Turno
