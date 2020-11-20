@@ -110,8 +110,8 @@ class Actividad(models.Model):
     nombre = models.CharField(max_length=80)
     evento = models.ForeignKey(Evento,  on_delete=models.CASCADE)
     tipo = models.ForeignKey(TipoActividad, on_delete=models.CASCADE)
-    catalogo = models.ForeignKey(Catalogo, on_delete=models.CASCADE, null=True)
-    ctlgos_restantes = models.IntegerField(default=1, null=True)
+    catalogo = models.ForeignKey(Catalogo, on_delete=models.CASCADE, null=True, blank=True)
+    ctlgos_restantes = models.IntegerField(default=1, null=True, blank=True)
 
     class Meta:
         verbose_name_plural = "Actividades"

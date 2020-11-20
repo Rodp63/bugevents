@@ -3,7 +3,7 @@ from datetime import date
 from django.forms import ModelForm, TextInput
 from django.core.exceptions import ValidationError
 
-from .models import Ambiente, Evento, Turno
+from .models import Ambiente, Evento, Turno, Actividad, Item
 
 
 '''
@@ -60,3 +60,38 @@ class TurnoForm(ModelForm):
         hora_fin = self.cleaned_data.get('hora_fin')
         if hora_inicio > hora_fin:
             raise ValidationError("La hora de inicio no puede ser posterior a la hora de fin.")
+
+
+'''
+
+'''
+class ActividadForm(ModelForm):
+    class Meta:
+        model = Actividad
+        fields = '__all__'
+        widgets = {
+            'ctlgos_restantes': TextInput(attrs={"type": "number",
+                                      "min": "1"})
+        }
+
+    def clean(self):
+        c_restantes = self.cleaned_data.get('ctlgos_restantes')
+        if c_restantes < 1:
+            raise ValidationError("El valor de los catalogos debe ser un número positivo.")
+
+
+'''
+'''
+class ItemForm(ModelForm):
+    class Meta:
+        model = Item
+        fields = '__all__'
+        widgets = {
+            'cantidad': TextInput(attrs={"type": "number",
+                                      "min": "1"})
+        }
+
+    def clean(self):
+        cantidad = self.cleaned_data.get('cantidad')
+        if cantidad < 1:
+            raise ValidationError("La cantidad debe ser un número positivo.")
