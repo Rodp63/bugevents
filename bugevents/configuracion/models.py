@@ -76,7 +76,7 @@ class Material(models.Model):
 
 
 '''
-Material -> Entidad del sistema 
+Catalogo -> Entidad del sistema 
 Clase relacionada -> CD54 [Entity]
 '''
 class Catalogo(models.Model):
@@ -87,6 +87,9 @@ class Catalogo(models.Model):
         return f"{self.descripcion}"
 
 
+'''
+Modelo Relacional -> EN20
+'''
 class Item(models.Model):
     catalogo = models.ForeignKey(Catalogo, on_delete=models.CASCADE)
     material = models.ForeignKey(Material, on_delete=models.CASCADE)
@@ -125,3 +128,4 @@ class Turno(models.Model):
 
     def __str__(self):
         return f"{self.nombre}"
+
