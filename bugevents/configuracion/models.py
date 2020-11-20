@@ -5,6 +5,7 @@ from django.utils import timezone
 '''
 Ambiente -> Entidad del sistema
 Clase relacionada -> CD24 [Entity]
+Modelo Relacional -> EN07
 '''
 class Ambiente(models.Model):
     nombre = models.CharField(max_length=30)
@@ -18,6 +19,7 @@ class Ambiente(models.Model):
 '''
 Evento -> Entidad del sistema
 Clase relacionada -> CD83 [Entity]
+Modelo Relacional -> EN04
 '''
 class Evento(models.Model):
     nombre = models.CharField(max_length=80)
@@ -46,6 +48,7 @@ class TipoActividad(models.Model):
 '''
 Ponente -> Entidad del sistema
 Clase relacionada -> CD73 [Entity]
+Modelo Relacional -> EN09
 '''
 class Ponente(models.Model):
     nombre = models.CharField(max_length=30)
@@ -63,6 +66,7 @@ class Ponente(models.Model):
 '''
 Material -> Entidad del sistema 
 Clase relacionada -> CD37 [Entity]
+Modelo Relacional -> EN21
 '''
 class Material(models.Model):
     nombre = models.CharField(max_length=50)
@@ -78,6 +82,7 @@ class Material(models.Model):
 '''
 Catalogo -> Entidad del sistema 
 Clase relacionada -> CD54 [Entity]
+Modelo Relacional -> EN19
 '''
 class Catalogo(models.Model):
     descripcion = models.CharField(max_length=50)
@@ -99,6 +104,7 @@ class Item(models.Model):
 '''
 Actividad -> Entidad del sistema
 Clase relacionada -> CD01 [Entity]
+Modelo Relacional -> EN05
 '''
 class Actividad(models.Model):
     nombre = models.CharField(max_length=80)
@@ -117,6 +123,7 @@ class Actividad(models.Model):
 '''
 Turno -> Entidad del sistema
 Clase relacionada -> CD44 [Entity]
+Modelo Relacional -> EN06
 '''
 class Turno(models.Model):
     actividad = models.ForeignKey(Actividad, on_delete=models.CASCADE)
