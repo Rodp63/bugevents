@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import Ambiente, Evento, Actividad, Ponente, Turno, Material
+from .models import Ambiente, Evento, Actividad, Ponente, Turno, Material, Catalogo
 from .forms import AmbienteForm, EventoForm, TurnoForm
 
 
@@ -45,3 +45,6 @@ class ActividadAdmin(admin.ModelAdmin):
     def get_model_perms(self, request):
         return {}
 admin.site.register(Actividad, ActividadAdmin)
+
+
+admin.site.register(Catalogo)
